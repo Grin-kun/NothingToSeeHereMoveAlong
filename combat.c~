@@ -1,0 +1,34 @@
+#include "combat.h"
+
+// Needs definition of NULL to work. Find the file for this
+
+typedef struct wilderness
+{
+  int * x; // DANGEROUS X'ES FOR THIS WILDERNESS
+  int * y;
+  int sizeoflist;
+} WILDERNESS;
+
+void dowildbattle (PLAYER theplayer, WILDERNESS* thewild)
+{
+  // LOL TODO
+}
+
+void addsquaretowild(WILDERNESS* wildtoaddto, int xtoadd, int ytoadd)
+{
+  wildtoaddto->*x // value OF first element in list
+  wildtoaddto->x // address of first element
+  wildtoaddto->x++ // what does x now point to? after this command
+  // if the last element has value 0, can you think of a way we can gothrough the entire list?
+  // assuming the list comes in at the start.
+  while(wildtoaddto->*x != NULL) // little tip for this future this is same without != 
+  {
+    wildtoaddto->x++;
+  }
+  // what does x point to here?
+  // COuld use realloc or could DANGEROUSLY assume the list has space.
+  // WE'RE GOING TO DANGEROUSLY assume that the list has space. I'll explain later.
+  wildtoaddto->*x = xtoadd; 
+  wildtoaddto->x++;
+  // assume memory is made with calloc and therefore is 0
+}
