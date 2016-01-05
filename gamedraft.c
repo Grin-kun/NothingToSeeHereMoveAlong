@@ -29,10 +29,16 @@ case 1:
   printf("HP:%d, Mana:%d\n", ((PLAYER*)entity)->hp, ((PLAYER*)entity)->mana);
   printf("Physical defence:%d, Magical defence:%d\n", ((PLAYER*)entity)->defpys, ((PLAYER*)entity)->defmage); 
   printf("Physical attack:%d, Magical attack:%d\n", ((PLAYER*)entity)->atkpys, ((PLAYER*)entity)->atkmage);
+  
 break;
 
 case 2:
-  // printf("%s:\n", ((NPC*)entity->npcname);
+  printf("%s:\n", ((PLAYER *)entity)->npcname);
+
+break;
+
+case 3:
+
 break;
 }
 }
@@ -55,7 +61,7 @@ gets (theplayer.playername);
 printf("\n");
 
 printf("Welcome, %s\n", theplayer.playername);
-printf("\nControls: u = Move up, d = Move down, l = Move left, r = Move right, s = Stats, q = Quit, w = Location, i = Current Quest");
+printf("\nControls: u = Move up, d = Move down, l = Move left, r = Move right, s = Party Stats, q = Quit, w = Location, i = Active Quests");
 theplayer.x = 10;
 theplayer.y = 10;
 theplayer.hp = 100;
@@ -65,19 +71,37 @@ theplayer.atkmage = 1;
 theplayer.defpys = 1;
 theplayer.defmage = 1;
 
+// NPCs //
+
+NPC aria;
+strcpy(aria.npcname, "Aria");
+aria.hp = 100;
+aria.mana = 100;
+aria.atkpys = 1;
+aria.atkmage = 1;
+aria.defpys = 1;
+aria.defmage = 1;
+
+
+
+
+
+
 
 char inscode;
 
 // QUESTS //
-QUEST currentquest; // NOT ACTUALLY A QUEST
-currentquest
 
+QUEST noquest; //NO ACTIVE QUEST
+noquest.status = 0;
+noquest.questid = 1;
+strcpy(noquest.questname, "\nNo quests are currently active");
 
 QUEST helpingaria;
 
 int frankdialouge1, ariadialouge1;
 helpingaria.status = 0;
-helpingaria.questid = 1;
+helpingaria.questid = 2;
 strcpy(helpingaria.questname, "Helping Aria");
 
 while (1) //Game loop
@@ -124,7 +148,7 @@ if (inscode == 's')
 
 if (inscode == 'i')
 {
-        printcurrentquest(& helpingaria, 1);
+    printcurrentquest(& noquest, 1);
 } // currentquest
 
 if (inscode == 'w')
