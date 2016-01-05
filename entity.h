@@ -8,8 +8,7 @@ typedef struct // npc
   char npcname [16];
 } NPC;
 
-//This function takes a player and prints their stats
-//void printstatus (void * entity, short);
+
 typedef struct // Player
 {
   int x, y, hp, mana, atkpys, atkmage, defpys, defmage;
